@@ -4,22 +4,22 @@
 
 -- Tabela de Solicitantes
 CREATE TABLE IF NOT EXISTS solicitante (
-    id SERIAL PRIMARY KEY,
+    id BIGSERIAL PRIMARY KEY,
     nome VARCHAR(150) NOT NULL,
-    cpf_cnpj VARCHAR(20) UNIQUE NOT NULL
+    cpf_cnpj VARCHAR(14) UNIQUE NOT NULL
 );
 
 -- Tabela de Categorias
 CREATE TABLE IF NOT EXISTS categoria (
-    id SERIAL PRIMARY KEY,
+    id BIGSERIAL PRIMARY KEY,
     nome VARCHAR(100) NOT NULL
 );
 
 -- Tabela de Solicitações
 CREATE TABLE IF NOT EXISTS solicitacao (
-    id SERIAL PRIMARY KEY,
-    solicitante_id INT NOT NULL,
-    categoria_id INT NOT NULL,
+    id BIGSERIAL PRIMARY KEY,
+    solicitante_id BIGINT NOT NULL,
+    categoria_id BIGINT NOT NULL,
     descricao TEXT,
     valor DECIMAL(15, 2) NOT NULL, -- 15 dígitos no total e 2 para as casas decimais
     data_solicitacao TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -41,11 +41,11 @@ CREATE TABLE IF NOT EXISTS solicitacao (
 
 -- Populando Solicitantes (Mínimo de 5 registros)
 INSERT INTO solicitante (nome, cpf_cnpj) VALUES
-('João da Silva', '111.222.333-44'),
-('Maria Oliveira', '555.666.777-88'),
-('Empresa XYZ LTDA', '12.345.678/0001-90'),
-('Carlos Souza', '999.888.777-66'),
-('Tech Solutions S.A.', '98.765.432/0001-10')
+('João da Silva', '11122233344'),
+('Maria Oliveira', '55566677788'),
+('Empresa XYZ LTDA', '12345678000190'),
+('Carlos Souza', '99988877766'),
+('Tech Solutions S.A.', '98765432000110')
 ON CONFLICT (cpf_cnpj) DO NOTHING;
 
 -- Populando Categorias (Mínimo de 5 registros)
