@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: sistema
+  datasource:
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/sgs_database}
+    username: ${SPRING_DATASOURCE_USERNAME:sgs_user}
+    password: ${SPRING_DATASOURCE_PASSWORD:sgs_password_123}
+  jpa:
+    hibernate:
+      ddl-auto: validate # Usamos validate porque o banco já foi criado pelo init.sql
+    show-sql: true # Útil para ver as queries geradas no console durante o dev
+    properties:
+      hibernate:
+        format_sql: true
+  jackson:
+    mapper:
+      accept-case-insensitive-enums: true # Permite que enums sejam desserializados de forma case-insensitive
