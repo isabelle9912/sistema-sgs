@@ -12,7 +12,11 @@ import { solicitacaoService } from "../services/solicitacaoService";
 import { categoriaService } from "../services/categoriaService";
 import { Card } from "../components/ui/Card";
 import { FiltrosSolicitacoes } from "../components/ui/FiltrosSolicitacoes";
-import { displayValue, formatDateToPtBR } from "../utils/formatters";
+import {
+  displayValue,
+  formatCpfCnpj,
+  formatDateToPtBR,
+} from "../utils/formatters";
 import { STATUS_COLORS } from "../utils/constants";
 
 const ListarSolicitacoes: React.FC = () => {
@@ -281,7 +285,13 @@ const ListarSolicitacoes: React.FC = () => {
                               {displayValue(solicitacao.solicitanteNome)}
                             </p>
                             <p className="mt-1 text-xs text-slate-500">
-                              {displayValue(solicitacao.solicitanteDocumento)}
+                              {solicitacao.solicitanteDocumento
+                                ? formatCpfCnpj(
+                                    solicitacao.solicitanteDocumento,
+                                  )
+                                : displayValue(
+                                    solicitacao.solicitanteDocumento,
+                                  )}
                             </p>
                           </div>
                         </td>
