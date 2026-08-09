@@ -1,0 +1,207 @@
+type: collection.insomnia.rest/5.0
+schema_version: "5.1"
+name: SGS
+meta:
+  id: wrk_b30e45d9aac6489f87606a42f61125bd
+  created: 1786111413629
+  modified: 1786111413629
+  description: ""
+collection:
+  - name: Solicitacao
+    meta:
+      id: fld_01d0bb2dd3c74081b442048a205e1113
+      created: 1786111439738
+      modified: 1786111439738
+      sortKey: -1786111439738
+      description: ""
+    children:
+      - url: "{{ _.base_url
+          }}/solicitacoes?dataInicio=2026-08-07T17:17:04.043546055&dataFim=2026\
+          -08-07T17:40:00"
+        name: Buscar Solicitacoes
+        meta:
+          id: req_369638c1f6e047e789c2f21df462bfc4
+          created: 1786111443397
+          modified: 1786134029918
+          isPrivate: false
+          description: ""
+          sortKey: -1786111446193
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/12.4.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}/solicitacoes"
+        name: Criar Solicitacao
+        meta:
+          id: req_04d91db9bcf94da8b1dee150330b8060
+          created: 1786111632914
+          modified: 1786127596683
+          isPrivate: false
+          description: ""
+          sortKey: -1786111446293
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"solicitanteId": 1,
+            	"categoriaId": 1,
+            	"descricao": "Descricao da solicitacao",
+            	"valor": 123.99 
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.4.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}/solicitacoes/2/status"
+        name: Atualizar Status Solicitacao
+        meta:
+          id: req_a646746859034aacab0e0c7aa2f6f145
+          created: 1786111666355
+          modified: 1786132996148
+          isPrivate: false
+          description: ""
+          sortKey: -1783718849023
+        method: PATCH
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"status": "batata"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.4.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}/solicitacoes/1"
+        name: Buscar Solicitacao
+        meta:
+          id: req_237c3c16bae644d295269e6e24acfa84
+          created: 1786111722309
+          modified: 1786140337068
+          isPrivate: false
+          description: ""
+          sortKey: -1784915147608
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/12.4.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: Categoria
+    meta:
+      id: fld_cdcc7a741ff548fea649360b3ad57e12
+      created: 1786126706230
+      modified: 1786126706230
+      sortKey: -1786126706230
+      description: ""
+    children:
+      - url: "{{ _.base_url }}/categorias"
+        name: Buscar Categorias
+        meta:
+          id: req_7423c6b01a334d1293b42b1dfc152aa8
+          created: 1786126710196
+          modified: 1786126730839
+          isPrivate: false
+          description: ""
+          sortKey: -1786126712692
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/12.4.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: Solicitante
+    meta:
+      id: fld_adfe8906296941189a3a1927ac2f9c61
+      created: 1786195586157
+      modified: 1786195586157
+      sortKey: -1786195586157
+      description: ""
+    children:
+      - url: "{{ _.base_url }}/solicitantes"
+        name: Buscar Solicitantes
+        meta:
+          id: req_09dad28f5c784f9f86d01badb4a687b3
+          created: 1786195595107
+          modified: 1786195607058
+          isPrivate: false
+          description: ""
+          sortKey: -1786195600319
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/12.4.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_0b6195cae6e5b72158c7a02583c0482d8e78c33e
+    created: 1786111413634
+    modified: 1786111413634
+environments:
+  name: Base Environment
+  meta:
+    id: env_0b6195cae6e5b72158c7a02583c0482d8e78c33e
+    created: 1786111413632
+    modified: 1786111972901
+    isPrivate: false
+  data:
+    base_url: http://localhost:8080/api
