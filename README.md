@@ -144,3 +144,4 @@ frontend/
 8. Extras:
 
    O arquivo DER.png contém o diagrama de entidades e relacionamentos do projeto.
+   o arquivo insomnia-routes.yaml contém as rotas e variáveis para facilitar o teste da api.
