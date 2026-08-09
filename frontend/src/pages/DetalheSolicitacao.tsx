@@ -5,6 +5,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import type { Solicitacao, StatusSolicitacao } from "../types/solicitacao";
 import {
   displayValue,
+  formatCpfCnpj,
   formatCurrencyBRL,
   formatDateToPtBR,
 } from "../utils/formatters";
@@ -265,7 +266,7 @@ const DetalheSolicitacao: React.FC = () => {
 
               <InfoItem
                 label="Documento"
-                value={displayValue(solicitacao.solicitanteDocumento)}
+                value={formatCpfCnpj(solicitacao.solicitanteDocumento)}
               />
 
               <InfoItem
