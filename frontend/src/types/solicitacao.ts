@@ -15,7 +15,6 @@ export type CreateSolicitacaoPayload = {
   solicitanteId: number;
   categoriaId: number;
   descricao: string;
-  dataSolicitacao: string | null;
   valor: number;
 };
 
