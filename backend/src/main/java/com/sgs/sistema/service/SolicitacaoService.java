@@ -46,7 +46,6 @@ public class SolicitacaoService {
         solicitacao.setCategoria(categoria);
         solicitacao.setDescricao(dto.descricao());
         solicitacao.setValor(dto.valor());
-        solicitacao.setDataSolicitacao(dto.dataSolicitacao());
         // Resalva: o status SOLICITADO e a data são setados automaticamente pelo @PrePersist na Entidade
 
         return solicitacaoRepository.save(solicitacao);
