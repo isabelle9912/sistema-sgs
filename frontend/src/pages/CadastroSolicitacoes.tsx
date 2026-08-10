@@ -22,6 +22,7 @@ const CadastroSolicitacoes: React.FC = () => {
       categoriaId: 0,
       descricao: "",
       valor: 0,
+      dataSolicitacao: null,
     },
   });
 
@@ -58,6 +59,7 @@ const CadastroSolicitacoes: React.FC = () => {
     setMessage("");
 
     try {
+      console.log(data);
       const response = await solicitacaoService.criarSolicitacao(data);
 
       if (!response) {
@@ -179,6 +181,19 @@ const CadastroSolicitacoes: React.FC = () => {
           />
           {errors.valor && (
             <span className="text-sm text-red-400">{errors.valor.message}</span>
+          )}
+
+          <Input
+            id="dataSolicitacao"
+            label="Data"
+            type="datetime-local"
+            {...register("dataSolicitacao")}
+            className="w-full rounded-xl border border-slate-700 bg-slate-800 px-4 py-3 text-slate-100 outline-none transition focus:border-cyan-400 focus:ring-2 focus:ring-cyan-500/20"
+          />
+          {errors.dataSolicitacao && (
+            <span className="text-sm text-red-400">
+              {errors.dataSolicitacao.message}
+            </span>
           )}
 
           <div className="flex flex-col gap-3 pt-2 sm:flex-row">
