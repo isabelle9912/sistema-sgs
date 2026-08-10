@@ -16,13 +16,13 @@ collection:
       description: ""
     children:
       - url: "{{ _.base_url
-          }}/solicitacoes?dataInicio=2026-08-07T17:17:04.043546055&dataFim=2026\
-          -08-07T17:40:00"
+          }}/solicitacoes?status=SOLICITADO&categoriaId=3&dataInicio=2026-08-01\
+          T00:00:00&dataFim=2026-08-31T23:59:59"
         name: Buscar Solicitacoes
         meta:
           id: req_369638c1f6e047e789c2f21df462bfc4
           created: 1786111443397
-          modified: 1786134029918
+          modified: 1786372595574
           isPrivate: false
           description: ""
           sortKey: -1786111446193
@@ -45,7 +45,7 @@ collection:
         meta:
           id: req_04d91db9bcf94da8b1dee150330b8060
           created: 1786111632914
-          modified: 1786127596683
+          modified: 1786370315246
           isPrivate: false
           description: ""
           sortKey: -1786111446293
@@ -54,10 +54,11 @@ collection:
           mimeType: application/json
           text: |-
             {
-            	"solicitanteId": 1,
+            	"solicitanteId": 2,
             	"categoriaId": 1,
-            	"descricao": "Descricao da solicitacao",
-            	"valor": 123.99 
+            	"descricao": "Solicitacao com data no cadastro 100",
+            	"valor": 123.99,
+            	"dataSolicitacao": "2025-01-11T17:17:04.00"
             }
         headers:
           - name: Content-Type
