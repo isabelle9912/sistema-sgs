@@ -43,7 +43,11 @@ public class Solicitacao {
     // Regra de negócio: Toda solicitação deve iniciar com status SOLICITADO
     @PrePersist
     public void prePersist() {
-        this.dataSolicitacao = LocalDateTime.now();
+        // Se a data não for informada, adiciona a atual
+        if (this.dataSolicitacao == null) {
+            this.dataSolicitacao = LocalDateTime.now();
+        }      
+        
         if (this.status == null) {
             this.status = StatusSolicitacao.SOLICITADO;
         }

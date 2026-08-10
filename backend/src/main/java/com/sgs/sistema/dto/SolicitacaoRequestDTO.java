@@ -1,6 +1,7 @@
 package com.sgs.sistema.dto;
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 
 import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.NotBlank;
@@ -19,6 +20,8 @@ public record SolicitacaoRequestDTO(
 
         @NotNull(message = "O valor é obrigatório")
         @DecimalMin(value = "0.0", inclusive = false, message = "O valor deve ser maior que zero") // Não permite valores negativos ou zero
-        BigDecimal valor
+        BigDecimal valor,
+
+        LocalDateTime dataSolicitacao
 ) {
 }
