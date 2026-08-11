@@ -40,12 +40,12 @@ Essa variável define a URL base utilizada pelo frontend para realizar as requis
 
 ---
 
-#### 2.2. Variáveis de ambiente do Backend
+#### 2.2. Variáveis de ambiente da raiz
 
 Crie o arquivo:
 
 ```text
-/backend/.env
+.env
 ```
 
 Adicione:
@@ -73,7 +73,6 @@ Ao final dessa etapa, a estrutura deverá estar semelhante a:
 ```text
 sistema-sgs/
 ├── backend/
-│   └── .env
 │
 ├── frontend/
 │   └── .env
@@ -82,6 +81,7 @@ sistema-sgs/
 │   └── init.sql
 │
 └── docker-compose.yml
+|── .env
 ```
 
 ### 3. **Verifique os scripts de Banco de Dados:**
