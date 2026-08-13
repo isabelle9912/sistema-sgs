@@ -1,0 +1,32 @@
+name: Backend CI - Testes
+
+# Define quando o pipeline vai rodar
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+jobs:
+  testes-backend:
+    # Máquina virtual onde o código vai rodar
+    runs-on: ubuntu-latest
+
+    steps:
+      # Passo 1: Baixa o código do repositório para a máquina virtual
+      - name: Checkout do código
+        uses: actions/checkout@v7
+
+      # Passo 2: Instala o Java 17
+      - name: Configurar o Java (JDK 17)
+        uses: actions/setup-java@v5
+        with:
+          java-version: "17"
+          distribution: "temurin"
+          cache: "maven" # Habilita cache
+
+      # Passo 3: Roda o comando de testes do Maven
+      - name: Executar testes unitários e de integração
+        # Como o pom.xml está dentro da pasta backend, é necessário navegar até ela
+        working-directory: ./backend
+        run: mvn clean test
