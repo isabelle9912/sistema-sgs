@@ -15,4 +15,4 @@ jobs:
       - name: Subir a aplicação com Docker Compose
         run: |
           docker-compose down
-          docker-compose up --build
+          docker-compose up -d --build
