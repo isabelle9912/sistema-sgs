@@ -12,7 +12,7 @@ jobs:
       - name: Checkout do código
         uses: actions/checkout@v4
 
-      - name: Criar arquivo .env
+      - name: Criar arquivo .env Raiz
         run: |
           echo "DB_NAME=${{ secrets.DB_NAME }}" >> .env
           echo "DB_USER=${{ secrets.DB_USER }}" >> .env
@@ -20,6 +20,10 @@ jobs:
           echo "BACKEND_PORT=${{ secrets.BACKEND_PORT }}" >> .env
           echo "FRONTEND_PORT=${{ secrets.FRONTEND_PORT }}" >> .env
           echo "VITE_API_URL=${{ secrets.VITE_API_URL }}" >> .env
+
+      - name: Criar arquivo .env do Frontend
+        run: |
+          echo "VITE_API_URL=${{ secrets.VITE_API_URL }}" >> frontend/.env
 
       - name: Subir a aplicação com Docker Compose
         run: |
