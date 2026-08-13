@@ -368,6 +368,23 @@ De forma resumida:
 
 Os testes de **Service** focam principalmente nas **regras de negócio**, enquanto o teste de **Controller** verifica o comportamento da API, incluindo **validação dos dados de entrada e códigos de resposta HTTP**.
 
+## Integração Contínua (CI) e Qualidade de Código
+
+Para garantir a estabilidade e a qualidade do código entregue, este projeto conta com um pipeline de **Integração Contínua (CI)** configurado através do **GitHub Actions**.
+
+Sempre que ocorrer push ou merge na branch **main**, o GitHub Actions provisiona automaticamente um ambiente isolado, compila a aplicação e executa a bateria de testes utilizando o Maven.
+
+### Como funciona o Pipeline
+
+- **Gatilhos (Triggers):** O fluxo de CI é acionado automaticamente em eventos de `Push` ou abertura de `Pull Requests` direcionados à branch `main`.
+- **Testes Executados:**
+  - **Testes Unitários:** Validação estrita das regras de negócio e transições de status na camada de serviço (`Service`), utilizando _Mockito_.
+  - **Testes de Integração (Web Layer):** Verificação de rotas, validações de payload de entrada e formatação de respostas de erro na camada de controle (`Controller`), utilizando _MockMvc_.
+
+### Benefícios
+
+Esta automação atua como uma barreira de segurança, impedindo que regressões ou códigos que quebrem as regras de negócio sejam mesclados na branch principal, mantendo a integridade da aplicação sempre em 100%.
+
 ## Escolhas Técnicas
 
 Durante o desenvolvimento foram adotadas algumas decisões técnicas com o objetivo de manter o código organizado, reduzir acoplamentos desnecessários e facilitar a manutenção e evolução da aplicação.
