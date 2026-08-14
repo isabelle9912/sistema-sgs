@@ -393,7 +393,7 @@ Além da Integração Contínua (CI), iniciei a configuração de uma esteira de
 
 O objetivo desta esteira é automatizar o deploy do sistema com a seguinte lógica:
 
-1. Ao realizar um merge na branch `main`, o GitHub Actions aciona o Runner local.
+1. Ao realizar um push na branch `main`, o GitHub Actions aciona o Runner local.
 2. O Runner executa o `docker-compose up --build`, orquestrando a subida unificada do Banco de Dados (PostgreSQL), da API (Spring Boot) e do Frontend (React + Nginx).
 3. O Nginx atua como Proxy Reverso, resolvendo os arquivos estáticos na raiz (`/`) e roteando as requisições de API (`/api`) para o backend de forma isolada na rede do Docker.
 
