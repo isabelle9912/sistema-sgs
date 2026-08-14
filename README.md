@@ -385,6 +385,27 @@ Sempre que ocorrer push ou merge na branch **main**, o GitHub Actions provisiona
 
 Esta automação atua como uma barreira de segurança, impedindo que regressões ou códigos que quebrem as regras de negócio sejam mesclados na branch principal, mantendo a integridade da aplicação sempre em 100%.
 
+## Entrega Contínua (CD) - [Em Desenvolvimento]
+
+Além da Integração Contínua (CI), iniciei a configuração de uma esteira de **Deploy Automatizado (CD)** utilizando **GitHub Actions** em conjunto com um **Self-Hosted Runner** hospedado em uma máquina Linux local (simulando um ambiente de real de deploy).
+
+### Arquitetura do Deploy (Proposta)
+
+O objetivo desta esteira é automatizar o deploy do sistema com a seguinte lógica:
+
+1. Ao realizar um merge na branch `main`, o GitHub Actions aciona o Runner local.
+2. O Runner executa o `docker-compose up --build`, orquestrando a subida unificada do Banco de Dados (PostgreSQL), da API (Spring Boot) e do Frontend (React + Nginx).
+3. O Nginx atua como Proxy Reverso, resolvendo os arquivos estáticos na raiz (`/`) e roteando as requisições de API (`/api`) para o backend de forma isolada na rede do Docker.
+
+### Status Atual e Próximos Passos (Melhorias Futuras)
+
+A infraestrutura do Runner e os scripts YAML já estão configurados no repositório. Contudo, o fluxo ainda não está 100% concluído devido a instabilidades de rede (falhas de _TLS handshake_ na resolução de DNS do Docker Hub no ambiente físico local).
+
+Para finalizar a entrega contínua com sucesso, os próximos passos mapeados são:
+
+- [ ] **Estabilização de Rede:** Resolver os gargalos de conexão do servidor local com o Docker.
+- [ ] **Exposição via Cloudflare Tunnels:** Configurar um túnel reverso (Zero Trust) para expor a porta 80 do Nginx de forma segura para a internet pública, permitindo o acesso ao sistema completo sem a necessidade de um IP fixo.
+
 ## Escolhas Técnicas
 
 Durante o desenvolvimento foram adotadas algumas decisões técnicas com o objetivo de manter o código organizado, reduzir acoplamentos desnecessários e facilitar a manutenção e evolução da aplicação.
